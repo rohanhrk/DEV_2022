@@ -1,0 +1,1 @@
+# readme for createMyDirectory/Lecture-7
