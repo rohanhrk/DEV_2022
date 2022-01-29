@@ -13,8 +13,10 @@ browser_open_promise.then(function (browser) {
     console.log("browser is opened");
     /* step 3 : Next we can use the pages() method on the browser object to get the array of page object */
     const all_tabs_promise = browser.pages();
+  
     return all_tabs_promise;
 }).then(function (tabs) {
+    console.log(tabs.length);
     glob_page = tabs[0];
 
     /* step 4 : Next up we call the goto() method on the page object to load that page */
