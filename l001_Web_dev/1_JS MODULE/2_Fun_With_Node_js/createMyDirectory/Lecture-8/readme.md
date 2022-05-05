@@ -1,1 +1,0 @@
-# readme for createMyDirectory/Lecture-8
