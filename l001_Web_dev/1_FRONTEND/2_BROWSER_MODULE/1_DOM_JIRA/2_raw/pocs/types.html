@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            Block level properties=>
+            1. By default, occupies width 100% of parent
+            2. height, width can be user defined
+            3. padding and margin can be set
+         */
+        .block {
+            height : 100px;
+            width : 100px;
+            background-color: lightcoral;
+            margin: 10px auto; 
+        }
+
+        /* 
+            inline level properties
+            1. User can't set height and width
+            2. requires space
+            3. User can't set margin and padding
+        */
+        .inline {
+            border: 1px solid gray;
+            background-color: lightgreen;
+        }
+
+        /* 
+            inline-block level properties
+            1. required space
+            2. height and width also be set
+            3. padding and margin can be set
+        */
+        .inline-block {
+            display: inline-block;
+            height : 100px;
+            width : 100px;
+            background-color: lightblue;
+            margin: 10px;
+            padding : 1px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. block level -->
+    <div class="block one">one</div>
+    <div class="block two">two</div>
+    <div class="block three">three</div>
+
+    <!-- 2. inline level -->
+    <span class="inline one">I am one</span>
+    <span class="inline two">I am two</span>
+    <span class="inline three">I am three</span>
+
+    <!-- 3. inline - block level -->
+    <div class="inline-block one"></div>
+    <div class="inline-block two"></div>
+    <div class="inline-block three"></div>
+</body>
+</html>
