@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .block {
+            height:1.5rem;
+            width: 15rem;
+            background-color: lightblue;
+        }
+
+        /* height/width can not be set */
+        .inline {
+            height:1.5rem; /* X */
+            width: 15rem; /* X */
+            background-color: lightcoral;
+        }
+
+        /* height/width can be set */
+        .inline-block {
+            display: inline-block;
+            height:1.5rem; /* ✔ */
+            width: 15rem; /* ✔ */
+            background-color: lightgray;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="block">I am block element 1</div>
+    <span class="inline">I am inline element 1</span>
+    <span class="inline">I am inline element 2</span>
+    <span class="inline-block">I am inline block element 1</span>
+</body>
+</html>

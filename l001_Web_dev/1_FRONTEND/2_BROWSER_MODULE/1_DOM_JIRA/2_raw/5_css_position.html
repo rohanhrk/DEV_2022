@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+
+    <style>
+        .box {
+            height: 15rem;
+            width: 15rem;
+        }
+        #box-1 {
+            background-color: lightblue;
+            position: static;
+            top : 3rem;
+            left: 3rem;
+        }
+
+        #box-2 {
+            background-color: lightgreen;
+            position: relative;
+            top: 13rem;
+            left: 13rem;
+        } 
+
+        #box-3 {
+            background-color: lightpink;
+            position: absolute;
+            top:5rem;
+            left: 5rem;
+        }   
+
+        #box-4 {
+            background-color: lightcoral;
+            position : fixed;
+            top : 14rem;
+            left : 14rem;
+        }
+
+        #box-5 {
+            background-color: lightgrey;
+            position: sticky;
+            top: 1rem;
+            left: 14rem;
+        }
+
+        #box-6 {
+            background-color: blueviolet;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="box" id="box-1">static</div>
+    <div class="box" id="box-2">relative</div>
+    <div class="box" id="box-3">absolute</div>
+    <div class="box" id="box-4">fixed</div>
+    <div class="box" id="box-5">sticky</div>
+    <div class="box" id="box-6">6</div>
+</body>
+</html>
