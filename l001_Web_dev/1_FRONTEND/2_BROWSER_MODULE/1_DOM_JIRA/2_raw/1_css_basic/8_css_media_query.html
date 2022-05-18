@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+        
+        div {
+            height : 100vh;
+            width: 100vw;
+            background-color: black;
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 768px) {
+            div {
+                background-color: lightblue;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            div {
+                background-color: lightgreen;
+            }
+        }
+        @media screen and (min-width: 1024px) {
+            div {
+                background-color: lightcoral;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div></div>
+      <!-- 
+          mobile -> (320px - 768px) -> lightblue
+          tablet -> (768px - 1024px) -> light green
+          labtop -> (>=1024px) -> lightcoral
+       -->
+</body>
+</html>
