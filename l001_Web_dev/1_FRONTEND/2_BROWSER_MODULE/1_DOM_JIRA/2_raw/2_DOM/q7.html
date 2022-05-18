@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .elem1 {
+            height: 16rem;
+            width: 16rem;
+            background-color: lightblue;
+            border: 1px solid blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .elem2 {
+            height: 80%;
+            width: 80%;
+            background-color: lightcoral;
+            border: 1px solid coral;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .elem3 {
+            height: 80%;
+            width: 80%;
+            background-color: lightgreen;
+            border: 1px solid green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="elem1">
+        <div class="elem2">
+            <div class="elem3"></div>
+        </div>
+    </div>
+
+    <script>
+        let elem1 = document.querySelector(".elem1");
+        let elem2 = document.querySelector(".elem2");
+        let elem3 = document.querySelector(".elem3");
+
+        elem1.addEventListener("click", (e) => {
+            alert("elem1");
+            console.log(e.target + ", " + e.currentTarget);
+        })
+
+        elem2.addEventListener("click", (e) => {
+            alert("elem2");
+        })
+
+        elem3.addEventListener("click", (e) => {
+            alert("elem3");
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Quesn 1 : On cicking "sayhello" button appned "Hello!!" to the page -->
+    <button>sayhello</button>
+
+    <script>
+        let btnElem = document.querySelector("button");
+        btnElem.addEventListener("click", function(e) {
+            let divElem = document.createElement("div");
+            divElem.innerText = "hello!!";
+            let bodyElem = document.querySelector("body");
+            bodyElem.appendChild(divElem);
+        })    
+    </script>
+</body>
+</html>
