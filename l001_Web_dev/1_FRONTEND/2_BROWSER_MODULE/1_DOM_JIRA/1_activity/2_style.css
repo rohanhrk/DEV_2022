@@ -131,6 +131,7 @@ body {
 .task-cont {
     height: calc(100% - 1rem - 2rem - 1.5rem);
     padding: 0.4rem;
+    outline: none;
 }
 
 .main-cont {

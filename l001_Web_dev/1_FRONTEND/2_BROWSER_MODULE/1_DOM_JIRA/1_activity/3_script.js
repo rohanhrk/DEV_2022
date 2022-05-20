@@ -4,7 +4,9 @@ let modal_cont = document.querySelector(".modal-cont");
 let main_cont = document.querySelector(".main-cont");
 let text_area = document.querySelector(".text-area");
 let priority_color = document.querySelectorAll(".priority-color");
-
+let toolbar_color = document.querySelectorAll(".color");
+let all_ticket_color = document.querySelectorAll(".ticket-color");
+let ticket_cont = document.querySelectorAll(".ticket-cont");
 
 let colors = ["light-blue", "light-green", "light-pink", "black"];
 let modal_priority_color = colors[colors.length - 1];
@@ -64,7 +66,7 @@ function createTicket(ticket_color, ticket_id, task) {
     ticket_cont.innerHTML = `
         <div class="ticket-color ${ticket_color}"></div>
         <div class="ticket-id">#${ticket_id}</div>
-        <div class="task-cont">${task}</div>
+        <div class="task-cont" spellcheck="false">${task}</div>
         <div class="lock">
                 <i class="fa-solid fa-lock"></i>
             </div>
@@ -73,6 +75,8 @@ function createTicket(ticket_color, ticket_id, task) {
 
     handleRemoveBtn(ticket_cont);
     handleToggleLock(ticket_cont);
+    handleColor(ticket_cont);
+    // handleFilter(ticket_cont);
 }
 
 function handleRemoveBtn(ticket_cont) {
@@ -86,7 +90,7 @@ function handleRemoveBtn(ticket_cont) {
 }
 function handleToggleLock(ticket_cont) {
     let key_elem = ticket_cont.querySelector(".fa-lock");
-
+    let task_cont = ticket_cont.querySelector(".task-cont");
     // listener to toggle lock key
     key_elem.addEventListener("click", (e) => {
         lock_flag = !lock_flag;
@@ -94,10 +98,36 @@ function handleToggleLock(ticket_cont) {
             // unlock the key
             key_elem.classList.remove("fa-lock");
             key_elem.classList.add("fa-unlock");
+            task_cont.setAttribute("contenteditable", "true");
         } else {
             // lock
             key_elem.classList.remove("fa-unlock");
             key_elem.classList.add("fa-lock");
+            task_cont.setAttribute("contenteditable", "false");
         }
     })
 }
+
+function handleColor(ticket_cont) {
+    let ticket_color = ticket_cont.querySelector(".ticket-color");
+    ticket_color.addEventListener("click", (e) => {
+        let currentTicketColor = ticket_color.classList[1];
+        let currentTicketColorIdx = colors.findIndex((color)=> {
+            return color == currentTicketColor;
+        });
+        currentTicketColorIdx = (currentTicketColorIdx + 1) % colors.length;
+        let newTicketColor = colors[currentTicketColorIdx];
+
+        ticket_color.classList.remove(currentTicketColor);
+        ticket_color.classList.add(newTicketColor);
+    })
+}
+
+toolbar_color.forEach((eachColor) => {
+    eachColor.addEventListener("click", (e) => {
+        let selectedColor = eachColor.classList[0];
+        ticket_cont.forEach((eachTicket) => {
+            eachTicket.style.display = none;
+        })
+    })
+})
