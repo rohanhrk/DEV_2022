@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.toolbar-cont {
+    height: 5rem;
+    background-color: #353b48;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-left: 3rem;
+}
+
+.priority-color-cont {
+    height: 3.5rem;
+    width: 16rem;
+    background-color: #293039;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.priority-color-cont > * {
+    height: 1.5rem;
+    width: 2rem;
+    background-color: aqua;
+    border-radius: 3px;
+}
+
+.light-blue {
+    background-color: lightblue;
+}
+
+.light-green {
+    background-color: lightgreen;
+}
+
+.light-pink {
+    background-color: lightpink;
+}
+
+.black {
+    background-color: black;
+}
+
+.action-btn-cont {
+    height: 3.5rem;
+    width: 8rem;
+    background-color: #293039;
+    display: flex;
+}
+
+.action-btn-cont > * {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #dcdde1;
+}
+
+.action-btn-cont > *:hover {
+    background-color: #535c68;
+}
+
+.modal-cont {
+    position: absolute;
+    height: 50vh;
+    width: 45vw;
+    background-color: lightblue;
+    left: calc((100vw - 45vw) / 2);
+    top: calc((100vh - 50vh) / 2);
+    display: none;
+}
+
+.text-area {
+    width: 75%;
+    resize: none;
+    border: none;
+    outline: none;
+    background-color: #dfe6e9;
+    padding: 2rem;
+    font-size: 2rem;
+    font-family: 'Roboto', sans-serif;
+}
+.modal-priority-color-cont {
+    height: 100%;
+    width: 25%;
+    background-color: #353b48;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modal-priority-color-cont > * {
+    height: 3rem;
+    width: 55%;
+    border-radius: 3px;
+}
+
+.ticket-cont {
+    height: 12rem;
+    width: 16rem;
+    background-color: #f6e58d;
+}
+
+.ticket-color {
+    height: 1rem;
+}
+
+.ticket-id {
+    height: 2rem;
+    padding: 0.4rem;
+}
+
+.lock {
+    display: flex;
+    padding-right: 5px;
+    justify-content: end;
+    height: 1.5rem;
+    color: #6a809a;
+    font-size: larger;
+}
+.task-cont {
+    height: calc(100% - 1rem - 2rem - 1.5rem);
+    padding: 0.4rem;
+}
+
+.main-cont {
+    height: calc(100vh - 5rem);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem;
+    gap: 1.5rem;
+}
+
+.border {
+    border: 3.5px solid #ffffff;
+}
