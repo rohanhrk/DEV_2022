@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    user-select: none;
 }
 
 body {
@@ -107,8 +108,8 @@ body {
 
 .ticket-cont {
     height: 12rem;
-    width: 16rem;
-    background-color: #f6e58d;
+    width: 18rem;
+    background-color: #dff9fb;
 }
 
 .ticket-color {
@@ -132,6 +133,7 @@ body {
     height: calc(100% - 1rem - 2rem - 1.5rem);
     padding: 0.4rem;
     outline: none;
+    user-select: none;
 }
 
 .main-cont {
@@ -139,8 +141,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 2rem;
-    gap: 1.5rem;
+    padding: 3rem;
+    gap: 3rem;
 }
 
 .border {
