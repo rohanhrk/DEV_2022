@@ -140,11 +140,12 @@ toolbar_color.forEach((color) => {
 /* ==========================================_FUNCTION_========================================== */
 // function to create ticket
 function createTicket(ticket_color, ticket_id, task) {
+    let id = ticket_id || shortid();
     let ticket_cont = document.createElement("div");
     ticket_cont.setAttribute("class", "ticket-cont");
     ticket_cont.innerHTML = `
         <div class="ticket-color ${ticket_color}"></div>
-        <div class="ticket-id">#${ticket_id}</div>
+        <div class="ticket-id">#${id}</div>
         <div class="task-cont" spellcheck="false">${task}</div>
         <div class="lock">
                 <i class="fa-solid fa-lock"></i>
@@ -152,15 +153,11 @@ function createTicket(ticket_color, ticket_id, task) {
     `
     main_cont.appendChild(ticket_cont); // append ticket_container(HTML) to main container
 
-    if(localStorage.getItem("JIRA_TICKET") && localStorage.getItem("JIRA_TICKET").includes(ticket_id) == true) return;
-
-    if(ticket_id_map.includes(ticket_id) == false ) {
-        ticket_obj.push({ticket_color, ticket_id, task}); // create ticket objet and push to ticket_obj array
-        /* ==============_LOCAL STORAGE_============== */
-        localStorage.setItem("JIRA_TICKET", JSON.stringify(ticket_obj)); // set objet to local storage
+    // Create object of ticket and add to array
+    if (!ticket_id) {
+        ticket_obj.push({ ticket_color, ticket_id: id, task});
+        localStorage.setItem("jira_tickets", JSON.stringify(ticket_obj));
     }
-
-    ticket_id_map.push(ticket_id);
 
     /* ==============_HANDLE_============== */ 
     handleToggleLock(ticket_cont, ticket_id);
