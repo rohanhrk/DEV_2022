@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <!-- ============================================= -->
+    <!-- ============================================= page action container ============================================= -->
     <div class="page-actions-cont">
         <div class="page-action">File</div>
         <div class="page-action">Home</div>
@@ -21,7 +21,9 @@
         <div class="page-action">Help</div>
     </div>
 
+    <!-- ============================================= cell property container ============================================= -->
     <div class="cellprops-actions-cont">
+        <!-- copy/cut/paste -->
         <span class="material-icons">
             content_copy
         </span>
@@ -31,7 +33,8 @@
         <span class="material-icons">
             content_paste
         </span>
-
+        
+        <!-- font family -->
         <select class="font-family-prop">
             <option value="Arial" style="font-family: Arial, Helvetica, sans-serif;" selected>
                 Arial
@@ -78,8 +81,7 @@
                 Comic Sans MS
             </option>
         </select>
-
-        </select>
+        <!-- font size -->
         <select class="font-size-prop">
             <option value="12">
                 12
@@ -115,7 +117,8 @@
                 32
             </option>
         </select>
-
+        
+        <!-- bold/itelic/underline -->
         <span class="material-icons bold">
             format_bold
         </span>
@@ -125,21 +128,24 @@
         <span class="material-icons underline">
             format_underlined
         </span>
-        <span class="material-icons alignment">
+        <!-- alignment -->
+        <span class="left material-icons alignment">
             format_align_left
         </span>
-        <span class="material-icons alignment">
+        <span class="center material-icons alignment">
             format_align_center
         </span>
-        <span class="material-icons alignment">
+        <span class="right material-icons alignment">
             format_align_right
         </span>
+        <!-- text-color -->
         <div class="color-prop">
             <span class="material-icons">
                 format_color_text
             </span>
             <input type="color" class="font-color-prop">
         </div>
+        <!-- background-color -->
         <div class="color-prop">
             <span class="material-icons">
                 format_color_fill
@@ -147,11 +153,15 @@
             <input type="color" class="BGcolor-prop">
         </div>
     </div>
+
+    <!-- ============================================= formula action container ============================================= -->
     <div class="formula-actions-cont">
         <input type="text" readonly class="address-bar">
         <img class="formula-icon" src="https://img.icons8.com/ios/50/000000/formula-fx.png" />
         <input type="text" class="formula-bar">
     </div>
+
+    <!-- ============================================= grid action container ============================================= -->
     <div class="grid-actions-cont">
         <div class="top-left-dummy-box"></div>
         <div class="address-col-cont"></div>
@@ -159,6 +169,8 @@
             <div class="address-row-cont"></div>
         </div>
     </div>
+
+    <!-- ============================================= sheet actions container ============================================= -->
     <div class="sheet-actions-cont">
         <div class="sheet-add-icon">
             <span class="material-icons">
@@ -171,7 +183,8 @@
 
 
     <script src="./3_grid_cont.js"></script>
-    <script src="./4_cell_prop.js"></script>
+    <script src="./4_cell-properties.js"></script>
+    <script src="./5_formula-evaluation.js"></script>
 </body>
 
 </html>
