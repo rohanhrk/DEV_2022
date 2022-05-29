@@ -7,13 +7,22 @@ for(let i = 0; i < rows; i++) {
             let [cell, cellProp] = getCellAndCellProp(address); // get cell and sheetDB access
             let enteredData = cell.innerText; // UI Change(cell)
 
-            // if value changed, also update value in children cell
+            // case 2 / case 3(a) 
+            // => if value changed, break Parent-child relationship 
+            // and update value in children cell also
             if(cellProp.value != "" && enteredData != cellProp.value) {
+                // 2.1.1 / 3.1.1 
                 cellProp.value = enteredData; // DB change
+                
+                // 3.1.2
                 removeChildFromParent(address); // remove myself(child) from parent DB 
+                
+                // 2.1.2 , 3.1.2
+                updateChildrenCell(address); // update children cell
+                
+                // 2.1.3 / 3.1.3
                 cellProp.formula = ""; // remove old formula 
                 
-                updateChildrenCell(address); // update children cell
                 return;
             }
 
@@ -24,35 +33,81 @@ for(let i = 0; i < rows; i++) {
 
 // listenter to formula bar to evaluate formula entered 
 let formulaBar = document.querySelector(".formula-bar");
-formulaBar.addEventListener("keydown", (e) => {
+formulaBar.addEventListener("keydown", async(e) => {
     let inputFormula = formulaBar.value; // get the formula -> ( A1 + A2 )
     if(e.key === "Enter" && inputFormula) {
+        // case 1 (cell dependancy) =>
         let address = addressBar.value; // get address name 
-        let [cell, cellProp] = getCellAndCellProp(address); // get cell and sheetDB access
+        let [cell, cellProp] = getCellAndCellProp(address); // get cell and cellProp
         
+        // Case 3(b)
         // If formula changed, remove Parent-children relationship
+        // update value in children cell
         if(inputFormula != cellProp.formula) {
-            // remove myself(child) from parent DB
-            removeChildFromParent(address);
+            // 3.2.1
+            removeChildFromParent(address); // remove myself(child) from parent DB
         }
 
+        
+        // 📌CYCLE DETECT (USING GRAPH ALGORITH) 📌
+        addEdgesInGraph(inputFormula, address); // add edges in a graph (parent -> children)
+        // True => not safe , false => safe
+        let cycleRespone = isSafeTOEnterFormula(graph);
+        if(cycleRespone) {
+            let [cycle_sr, cycle_sc] = cycleRespone;
+            let response = confirm("Formula is form a cycle. Do you want to trace this cycle??");
+            while(response === true) {
+                // color trace
+                await cyclePathTrace(graph, cycle_sr, cycle_sc);
+                response = confirm("Entered Formula is cyclic. Do you want to trace cycle");
+            }
+            removeEdgeFromGraph(inputFormula);
+            return;
+        }
+        
+        // case 1
+        // 1.1.1 / 3.2.2
         let evaluatedValue = evaluateFormula(inputFormula); // Evaluate the formula -> get value
        
-        // To update UI and cellProp in DB
-        setCellUIAndCellProp(evaluatedValue, inputFormula);
+        // 1.1.2 / 3.2.3 
+        setCellUIAndCellProp(evaluatedValue, inputFormula); //To update UI and cellProp in DB
+        
+        // 1.1.3 / 3.2.4
         addChildToParent(inputFormula); // add yourself(child) to parent
 
-        // set formula bar to default
-        formulaBar.value = "";
+        // 1.1.4 / 3.2.5
+        formulaBar.value = ""; // set formula bar to default
 
-        // also update children cell
-        updateChildrenCell(address);
+        // 1.1.5 / 3.2.6    
+        updateChildrenCell(address); // also update children cell
     }
 
 })
 
 
 // ==========================================_FUNCTION_==========================================
+function addEdgesInGraph(formula, childAddress) {
+    let [crid, ccid] = decodeRIDCIDFromAddress(childAddress);
+    let formulaArr = formula.split(" ");
+    formulaArr.forEach((elem) => {
+        let ch = elem.charAt(0);
+        if(ch >= 'A' && ch <= 'Z') {
+            let [prid, pcid] = decodeRIDCIDFromAddress(elem);
+            graph[prid][pcid].push([crid, ccid]); // directed graph
+        }
+    })
+}
+
+function removeEdgeFromGraph(formula) {
+    let formulaArr = formula.split(" ");
+    formulaArr.forEach((elem) => {
+        let ch = elem.charAt(0);
+        if(ch >= 'A' && ch <= 'Z') {
+            let [prid, pcid] = decodeRIDCIDFromAddress(elem);
+            graph[prid][pcid].pop();
+        }
+    })
+}
 function removeChildFromParent(childAddress) {
     let [childCell, childCellProp] = getCellAndCellProp(childAddress);
     let formula = childCellProp.formula;// get formula from children DB

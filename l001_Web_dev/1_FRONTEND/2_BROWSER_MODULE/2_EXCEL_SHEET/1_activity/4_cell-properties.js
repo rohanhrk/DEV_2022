@@ -1,26 +1,11 @@
 "Use Strick";
 
 // Storage
+let collectedSheetDB = []; // contains all the sheet DB
 let sheetDB = [];
-for (let i = 0; i < rows; i++) {
-    let sheetRow = [];
-    for (let j = 0; j < cols; j++) {
-        let cellProp = {
-            bold: false,
-            italic: false,
-            underline: false,
-            alignment: "left",
-            fontFamily: "monospace",
-            fontSize: "14",
-            fontColor: "#000000",
-            BGcolor: "#000000",  // Just for indication purpose,
-            value: "",
-            formula: "",
-            children: []
-        }
-        sheetRow.push(cellProp);
-    }
-    sheetDB.push(sheetRow);
+{
+    let addBtn = document.querySelector(".sheet-add-icon");
+    addBtn.click(); 
 }
 
 
@@ -181,6 +166,9 @@ function addListenerToAttachCellProperties(cell) {
                 break;
         }
 
+        // value
+        cell.innerText = cellProp.value;
+
         // formula
         let formula = document.querySelector(".formula-bar");
         formula.value = cellProp.formula;
@@ -204,6 +192,3 @@ function decodeRIDCIDFromAddress(address) {
     return [rid, cid];
 }
 
-// By default click on first cell via DOM
-let firstCell = document.querySelector(".cell");
-firstCell.click();

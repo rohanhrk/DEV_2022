@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     user-select: none;
+    overflow : auto;
 }
 body {
     margin: 0;
@@ -23,7 +24,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 
 
 /* ===========================_Cell properties action container_ ===========================*/
@@ -176,8 +176,8 @@ body {
     text-decoration: underline;
     font-weight: bold;
     text-decoration-thickness: 3px;
-    font-size: 0.9rem;
-    /* background-color: lightblue; */
+    font-size: 1.2rem;
+    background-color: lightblue;
     text-align: center;
     display: flex;
     justify-content: center;
