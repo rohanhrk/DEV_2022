@@ -15,7 +15,8 @@ for (let i = 0; i < rows; i++) {
             fontColor: "#000000",
             BGcolor: "#000000",  // Just for indication purpose,
             value: "",
-            formula: ""
+            formula: "",
+            children: []
         }
         sheetRow.push(cellProp);
     }
@@ -152,6 +153,7 @@ function addListenerToAttachCellProperties(cell) {
         cell.style.color = cellProp.fontColor;
         cell.style.backgroundColor = cellProp.BGcolor === "#000000" ? "transparent" : cellProp.BGcolor;
         cell.style.textAlign = cellProp.alignment;
+        
 
         // Apply properties UI Props container
         bold.style.backgroundColor = cellProp.bold ? activeColorProp : inactiveColorProp;
@@ -179,6 +181,9 @@ function addListenerToAttachCellProperties(cell) {
                 break;
         }
 
+        // formula
+        let formula = document.querySelector(".formula-bar");
+        formula.value = cellProp.formula;
 
     })
 }

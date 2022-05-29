@@ -95,10 +95,10 @@ body {
 }
 .top-left-dummy-box {
     height: 2rem;
-    width: 2rem;
+    width: 2.1rem;
     background-color: #747d8c;
     position: fixed;
-    z-index: 4;
+    z-index: 1;
 }
 .address-col-cont {
     position: sticky;
@@ -115,19 +115,20 @@ body {
     position: absolute;
     top: 0;
     left: 2rem;
+    border: 1px solid #afbac7;
 }
 .address-col {
     height: 2rem;
-    width: 2rem;
+    width: 2.1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #dfe4ea;
+    border: 1px solid #91a0b1;
 }
 .address-row {
     height: 2rem;
     width: 5rem;
-    border: 1px solid #dfe4ea;
+    border: 1px solid #91a0b1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,6 +141,7 @@ body {
     width: 5rem;
     border: 1px solid #dfe4ea;
     outline: none;
+    border: 1px solid #afbac7;
 }
 
 /* ===========================_sheet action container_ ===========================*/
