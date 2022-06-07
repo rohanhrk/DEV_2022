@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import InputContainer from './InputContainer';
+import TaskList from './TaskList';
 
 /*
     step 1. Inside the render function -> initially define your static UI 
@@ -10,13 +12,13 @@ import React, { Component } from 'react'
 
 export default class Todo extends Component {
     state = {
-        taskList: ["Task-1", "Task-2", "Task-3", "Task-4", "Task-5"],
-        currTask : ""
+        taskList: []
+        
     }
 
-    deleteTask = (dltTask) => {
+    deleteTask = (dltTaskID) => {
         let filteredTask = this.state.taskList.filter((task) => {
-            return dltTask !== task;
+            return dltTaskID !== task.id;
         })
 
         this.setState({
@@ -24,15 +26,10 @@ export default class Todo extends Component {
         })
     }
 
-    handleCurrTask = (e) => {
-        let currValue = e.currentTarget.value;
-        this.setState({
-            currTask: currValue
-        })
-    }
 
-    addTask = () => {
-        let tempArr = [...this.state.taskList, this.state.currTask];
+
+    addTask = (currTask) => {
+        let tempArr = [...this.state.taskList, {task : currTask, id : this.state.taskList.length}];
         this.setState({
             taskList: tempArr
         })
@@ -40,25 +37,10 @@ export default class Todo extends Component {
     render() {
         return (
             <div>
-                <div className="input-container">
-                    <input type="text" value={this.state.currTask} onChange = {this.handleCurrTask}/>
-                    <button onClick={this.addTask}>Submit</button>
-                </div>
-                <div className="task-list">
-                    <ul>
-                        {
-                            this.state.taskList.map((task) => {
-                                return (
-                                    <li>
-                                        <p>{task}</p>
-                                        <button onClick={() => {this.deleteTask(task)}}>Delete</button>
-                                    </li>
-                                )
-                            })
-                        }
-
-                    </ul>
-                </div>
+               
+                {/* PASSING PROPS TO CHILDREN COMPONENT */}
+                <InputContainer addTask = {this.addTask} ></InputContainer>
+                <TaskList taskList = {this.state.taskList} deleteTask = {this.deleteTask}></TaskList>
             </div>
         )
     }
