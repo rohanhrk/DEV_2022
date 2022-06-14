@@ -193,7 +193,7 @@ export default class MoviePage extends Component {
                     </ul>
                 </div>
                 <div className="col-9">
-                    <div className="filter-container">
+                    <div className="filter-container" style={{marginTop: "0.5rem"}}>
                         <span className="search-container" >
                             <label for="for-search" style={{ marginRight: "0.5rem" }}>Search</label>
                             <input type="search" id="for-search" value={currentInputText} style={{ marginRight: "0.5rem" }} placeholder="Enter" onChange={this.handleMoviesFilter}></input>
