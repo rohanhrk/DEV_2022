@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Pagination from './Pagination'
 import MovieItemTable from './MovieItemTable'
 import MovieItemColumnn from './MovieItemColumnn'
+import { Link } from 'react-router-dom'
 
 // Mounting phase => constructor() -> render() -> componentDidMount();
 export default class MoviePage extends Component {
@@ -194,6 +195,9 @@ export default class MoviePage extends Component {
                 </div>
                 <div className="col-9">
                     <div className="filter-container" style={{marginTop: "0.5rem"}}>
+                        <span className="new-container">
+                            <Link type="button" to="/new" class="btn btn-dark" style={{ marginRight: "0.5rem" }}>New</Link>
+                        </span>
                         <span className="search-container" >
                             <label for="for-search" style={{ marginRight: "0.5rem" }}>Search</label>
                             <input type="search" id="for-search" value={currentInputText} style={{ marginRight: "0.5rem" }} placeholder="Enter" onChange={this.handleMoviesFilter}></input>
