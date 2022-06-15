@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 // Mounting phase => constructor() -> render() -> componentDidMount();
 export default class MoviePage extends Component {
     state = {
-        moviesArr: [],
+        // moviesArr: [],
         generesArr: [],
         currentGenre: "All Genres",
         currentInputText: "",
@@ -20,16 +20,7 @@ export default class MoviePage extends Component {
         sortRatingDown: false
     }
 
-    handleDeleteMovieItem = (id) => {
-        let filteredMovies = this.state.moviesArr.filter((moviesObj) => {
-            return moviesObj._id !== id;
-        })
-
-        this.setState({
-            moviesArr: filteredMovies
-        })
-    }
-
+   
     handleMoviesFilter = (e) => {
         let text = e.target.value;
 
@@ -103,15 +94,6 @@ export default class MoviePage extends Component {
     // ComponenentDidMount
     componentDidMount() {
         // console.log("2");
-        let backendMovieDataPromise = fetch("https://react-backend101.herokuapp.com/movies");
-        backendMovieDataPromise.then((moviesData) => {
-            moviesData.json().then((jsonMoviesObj) => {
-                this.setState({
-                    moviesArr: jsonMoviesObj.movies
-                })
-            })
-        })
-
         let backendGenresDataPromise = fetch("https://react-backend101.herokuapp.com/genres");
         backendGenresDataPromise.then((ganeresData) => {
             ganeresData.json().then((jsonGenresObj) => {
@@ -124,7 +106,8 @@ export default class MoviePage extends Component {
 
     render() {
         // console.log("1");
-        let { moviesArr, generesArr, currentGenre, currentInputText, limitMovieOnPage, currentPageNo } = this.state;
+        let { generesArr, currentGenre, currentInputText, limitMovieOnPage, currentPageNo } = this.state;
+        let {moviesArr, handleDeleteMovieItem} = this.props;
 
         let filteredMovieArr = moviesArr;
         // 1. display on the basis of genre
@@ -214,7 +197,7 @@ export default class MoviePage extends Component {
                         <MovieItemColumnn handleSortByStock={this.handleSortByStock} handleSortByRating = {this.handleSortByRating} ></MovieItemColumnn>
 
                         {/* Movie Item Table */}
-                        <MovieItemTable handleDeleteMovieItem={this.handleDeleteMovieItem} filteredMovieArr={filteredMovieArr}></MovieItemTable>
+                        <MovieItemTable handleDeleteMovieItem={handleDeleteMovieItem} filteredMovieArr={filteredMovieArr}></MovieItemTable>
                         {/* pagination */}
                         <Pagination pageArr={pageArr} currentPageNo={currentPageNo} handlePagination={this.handlePagination}></Pagination>
 

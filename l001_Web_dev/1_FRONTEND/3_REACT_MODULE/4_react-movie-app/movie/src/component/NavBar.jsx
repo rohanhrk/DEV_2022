@@ -5,7 +5,7 @@ export default class NavBar extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-expand-lg bg-dark text-primary">
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div className="container-fluid">
                         <Link to = "/movie" className="navbar-brand" >Movies</Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
