@@ -5,10 +5,24 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Login from './Login';
 import ContextParent from './ContextParent';
+import Question1 from './TestOnReactHooksContext/Question1';
+import Question2 from './TestOnReactHooksContext/Question2';
+import Question3 from './TestOnReactHooksContext/Question3';
+import Question4 from './TestOnReactHooksContext/Question4'
+import Question5 from './TestOnReactHooksContext/Question5'
+import Question6 from './TestOnReactHooksContext/Question6'
+import Question7 from './TestOnReactHooksContext/Question7'
 
 ReactDOM.render(
   // <Login></Login>
-  <ContextParent></ContextParent>,
+  // <ContextParent></ContextParent>,
+  // <Question1></Question1>,
+  // <Question2></Question2>,
+  // <Question3></Question3>,
+  // <Question4></Question4>,
+  // <Quetion5></Quetion5>,
+  // <Question6></Question6>,
+  <Question7></Question7>,
   document.getElementById('root')
 );
 
