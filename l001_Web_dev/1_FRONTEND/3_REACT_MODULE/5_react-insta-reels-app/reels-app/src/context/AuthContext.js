@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import auth from '../firebase';
 
 export const AuthContext = React.createContext();
+
+// children => AuthProvider ka children -> Login/signup.feed component
 export function AuthProvider({ children }) {
     const [currentUser, setUser] = useState();
     const [loading, setLoding] = useState(true);
-    
+
     async function login(email, password) {
         // firebase
         return await auth.signInWithEmailAndPassword(email, password);
