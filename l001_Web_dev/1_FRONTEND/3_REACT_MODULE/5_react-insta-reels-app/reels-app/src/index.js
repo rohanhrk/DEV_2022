@@ -5,12 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Login from './Login';
 import ContextParent from './ContextParent';
+import UseEffect from './UseEffectMethods/UseEffect';
 
 
 ReactDOM.render(
   // <Login></Login>
   // <ContextParent></ContextParent>,
-  <App></App>,
+  // <App></App>,
+  <UseEffect></UseEffect>,
   document.getElementById('root')
 );
 

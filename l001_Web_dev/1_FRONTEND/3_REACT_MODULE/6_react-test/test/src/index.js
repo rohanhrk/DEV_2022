@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -10,16 +10,18 @@ import Question4 from './TestOnReactHooksContext/Question4'
 import Question5 from './TestOnReactHooksContext/Question5'
 import Question6 from './TestOnReactHooksContext/Question6'
 import Question7 from './TestOnReactHooksContext/Question7'
+import UseEffect from '../../../5_react-insta-reels-app/reels-app/src/UseEffectMethods/UseEffect';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
    // <Question1></Question1>,
   // <Question2></Question2>,
   // <Question3></Question3>,
   // <Question4></Question4>,
   // <Quetion5></Quetion5>,
   // <Question6></Question6>,
-  <Question7></Question7>,
+  // <Question7></Question7>,
+  <UseEffect></UseEffect>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
