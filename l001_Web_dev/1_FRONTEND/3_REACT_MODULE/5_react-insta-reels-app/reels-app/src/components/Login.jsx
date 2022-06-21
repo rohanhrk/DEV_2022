@@ -1,38 +1,48 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useContext } from 'react';
-import { AuthContext } from "../context/AuthContext";
+import { useState } from 'react'
+import { AuthContext } from '../contexts/AuthProvider';
+
 function Login(props) {
-    const { login } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [loading, setLoader] = useState(false);
+    const [loader, setLoader] = useState(false);
+    const [error, setError] = useState(false);
+    const { login } = useContext(AuthContext);
+
     const handleSubmit = async (e) => {
-        // alert(email + password);
+        e.preventDefault(); // it prevent to page reloading
         try {
             setLoader(true);
-
-            // async
-            await login(email, password);
-
+            await login(email, password); // login => async function
             setLoader(false);
             props.history.push("/");
-        } catch (error) {
+        } catch {
+            setError(true);
             setLoader(false);
-        }
-        setEmail("");
-        setPassword("");
-    }
 
+            // reset email and password
+            setEmail("");
+            setPassword("");
+        }
+    }
     return (
         <div>
-            <h1>Firebase login</h1>
-            <input type="email" value={email} onChange={(e) => {
-                setEmail(e.currentTarget.value);
-            }} />
-            <input type="password" value={password} onChange={(e) => {
-                setPassword(e.currentTarget.value);
-            }} />
-            <input type="button" value="submit" onClick={handleSubmit} disabled={loading}/>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id="email" value={email} onChange={(e) => {
+                        setEmail(e.currentTarget.value);
+                    }} />
+                </div>
+                <div>
+                    <label htmlFor="password">Password</label>
+                    <input type="password" id="password" value={password} onChange={(e) => {
+                        setPassword(e.currentTarget.value);
+                    }} />
+                </div>
+                <button type="submit" disabled={loader}>Login</button>
+            </form>
         </div>
     )
 }

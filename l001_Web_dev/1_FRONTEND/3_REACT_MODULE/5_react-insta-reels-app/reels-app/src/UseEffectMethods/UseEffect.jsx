@@ -44,7 +44,7 @@ export default function UseEffect() {
 
     // Method 3 : useEffect with dependancy array
     // useEffect(() => {
-    //     console.log("It will run on initial component loaded and also on every rander of taskList list state changed");
+    //     console.log("It will run on initial component loaded and also on every rander of dependant state changed");
 
     //     // return clean up function
     //     return () => {

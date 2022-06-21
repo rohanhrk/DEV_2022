@@ -11,8 +11,8 @@ import UseEffect from './UseEffectMethods/UseEffect';
 ReactDOM.render(
   // <Login></Login>
   // <ContextParent></ContextParent>,
-  // <App></App>,
-  <UseEffect></UseEffect>,
+  <App></App>,
+  // <UseEffect></UseEffect>,
   document.getElementById('root')
 );
 
