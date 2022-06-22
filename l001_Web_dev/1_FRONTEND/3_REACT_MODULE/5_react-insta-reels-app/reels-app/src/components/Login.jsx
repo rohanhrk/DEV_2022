@@ -16,8 +16,9 @@ function Login(props) {
             setLoader(true);
             await login(email, password); // login => async function
             setLoader(false);
-            props.history.push("/");
+            props.history.push("/"); // redirect to home page => feed page
         } catch {
+            // error
             setError(true);
             setLoader(false);
 

@@ -3,7 +3,9 @@ import { useState, useEffect } from 'react';
 import auth from '../firebase';
 
 export const AuthContext = React.createContext();
-function AuthProvider({children}) {
+
+// children => the component inside the AuthProvider component
+function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState(); // initially current user set as null
     const [loading, setLoading] = useState(true);
 
@@ -17,9 +19,19 @@ function AuthProvider({children}) {
 
     function signOut() {
         // Signs out the current user.
-        return auth.signOut(); 
+        return auth.signOut();
     }
 
+    function signup(email, password) {
+        /*
+            => Creates a new user account associated with the specified email address and password.
+            => On successful creation of the user account, this user will also be signed in to your application.
+            => User account creation can fail if the account already exists or the password is invalid.
+        */
+        return auth.createUserWithEmailAndPassword(email, password);
+    }
+
+    
     useEffect(() => {
         // event listener add
         console.log("event Listener add");
@@ -38,6 +50,7 @@ function AuthProvider({children}) {
         currentUser,
         signOut,
         login,
+        signup
     }
 
     return (

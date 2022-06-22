@@ -6,12 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import Login from './Login';
 import ContextParent from './ContextParent';
 import UseEffect from './UseEffectMethods/UseEffect';
+import MaterialUI from './MaterialUI';
 
 
 ReactDOM.render(
   // <Login></Login>
   // <ContextParent></ContextParent>,
-  <App></App>,
+  // <App></App>,
+  <MaterialUI></MaterialUI>,
   // <UseEffect></UseEffect>,
   document.getElementById('root')
 );
