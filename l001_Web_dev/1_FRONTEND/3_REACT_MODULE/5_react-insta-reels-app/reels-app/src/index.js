@@ -12,8 +12,8 @@ import MaterialUI from './MaterialUI';
 ReactDOM.render(
   // <Login></Login>
   // <ContextParent></ContextParent>,
-  // <App></App>,
-  <MaterialUI></MaterialUI>,
+  <App></App>,
+  // <MaterialUI></MaterialUI>,
   // <UseEffect></UseEffect>,
   document.getElementById('root')
 );
