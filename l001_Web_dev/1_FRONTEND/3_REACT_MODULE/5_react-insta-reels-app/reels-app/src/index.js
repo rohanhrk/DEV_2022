@@ -7,12 +7,14 @@ import Login from './Login';
 import ContextParent from './ContextParent';
 import UseEffect from './UseEffectMethods/UseEffect';
 import MaterialUI from './MaterialUI';
+import IntersectionObserver from './IntersectionObserver/IntersectionObserver';
 
 
 ReactDOM.render(
   // <Login></Login>
   // <ContextParent></ContextParent>,
-  <App></App>,
+  // <App></App>
+  <IntersectionObserver></IntersectionObserver>,
   // <MaterialUI></MaterialUI>,
   // <UseEffect></UseEffect>,
   document.getElementById('root')
