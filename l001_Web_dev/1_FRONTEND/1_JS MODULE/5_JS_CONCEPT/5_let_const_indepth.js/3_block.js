@@ -85,9 +85,9 @@ console.log(name);
 } 
 
 // <================_illegal_================>
-let run = 1;
-console.log(run);
-{
-    var run = 2;  // illegal shadowing because var is functional scopped not block scopped
-    console.log(run);
-}
+// let run = 1;
+// console.log(run);
+// {
+//     var run = 2;  // illegal shadowing because var is functional scopped not block scopped
+//     console.log(run);
+// }

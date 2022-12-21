@@ -3,6 +3,8 @@
 // Storage
 let collectedSheetDB = []; // contains all the sheet DB
 let sheetDB = [];
+
+// ate hi add button pe click ho jayega
 {
     let addBtn = document.querySelector(".sheet-add-icon");
     addBtn.click(); 
@@ -12,10 +14,10 @@ let sheetDB = [];
 // Selectors for cell properties
 let fontSize = document.querySelector(".font-size-prop");
 let fontFamily = document.querySelector(".font-family-prop");
+let fontColor = document.querySelector(".font-color-prop");
 let bold = document.querySelector(".bold");
 let italic = document.querySelector(".italic");
 let underline = document.querySelector(".underline");
-let fontColor = document.querySelector(".font-color-prop");
 let BGcolor = document.querySelector(".BGcolor-prop");
 let alignment = document.querySelectorAll(".alignment");
 let leftAlign = alignment[0];
@@ -26,7 +28,7 @@ let activeColorProp = "#d1d8e0";
 let inactiveColorProp = "#ecf0f1";
 
 // application of two-way binding
-// Attache property listener
+// Attached property listener
 bold.addEventListener("click", (e) => {
     let address = addressBar.value;
     let [cell, cellProp] = getCellAndCellProp(address);

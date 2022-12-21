@@ -1,7 +1,7 @@
 /*
     i. const variable can not be reassign nor be redclare
     ii. const variable must be assigned value when they are declared
-    iii . unline let variable, const varables also have "temporal dead zone"
+    iii. unlike let variable, const varables also have "temporal dead zone"
 */ 
 
 // incorrect

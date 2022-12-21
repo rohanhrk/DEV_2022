@@ -78,11 +78,11 @@ priority_color.forEach((colorElem) => {
 
 /*
     4. click listener add to generate ticket
-    => on shift press, ticket will generate which contains ticket color, unique id and task which we written
+    => on Enter press, ticket will generate which contains ticket color, unique id and task which we written
 */
 modal_cont.addEventListener("keydown", (e) => {
     let key = e.key;
-    if (key === "Shift") {
+    if (key === "Enter") {
         let ticket_color = modal_priority_color;
         let ticket_id = shortid();
         let task = text_area.value;
@@ -156,7 +156,7 @@ function createTicket(ticket_color, ticket_id, task) {
     // Create object of ticket and add to array
     if (!ticket_id) {
         ticket_obj.push({ ticket_color, ticket_id: id, task});
-        localStorage.setItem("jira_tickets", JSON.stringify(ticket_obj));
+        localStorage.setItem("JIRA_TICKET", JSON.stringify(ticket_obj));
     }
 
     /* ==============_HANDLE_============== */ 

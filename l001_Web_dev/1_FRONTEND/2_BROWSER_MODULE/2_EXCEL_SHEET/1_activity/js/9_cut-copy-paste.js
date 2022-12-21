@@ -32,11 +32,20 @@ function handleSelectedCell(cell) {
     let rid = Number(cell.getAttribute("rid")); // get rid
     let cid = Number(cell.getAttribute("cid")); // get cid
 
+
     if(rangeStorage.length >= 2) {
         // getDefaultSeletedCell();
         removeSelectedRangeUI();
         rangeStorage = []; // make rangeStorage to empty
     }
+
+    // if click in same cell -> remove selected range
+    if(rangeStorage.length == 1 &&  rid == rangeStorage[0][0] && cid == rangeStorage[0][1]) {
+        getDefaultSeletedCell();
+        rangeStorage = []; // make rangeStorage to empty
+        return;
+    }
+
     rangeStorage.push([rid, cid]); // store (rid,cid) in a storage array
 
     // UI
