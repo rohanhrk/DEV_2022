@@ -9,11 +9,11 @@ import Hooks from './Hooks'
 ReactDOM.render(
 
 
-    // <BrowserRouter>
-      // <App />
-    //   {/* <Routing></Routing> */}
-    //  </BrowserRouter> */}
-    <Hooks></Hooks>
+    <BrowserRouter>
+      <App />
+      {/* <Routing></Routing> */}
+     </BrowserRouter> 
+    // <Hooks></Hooks>
  
   ,document.getElementById('root')
 );

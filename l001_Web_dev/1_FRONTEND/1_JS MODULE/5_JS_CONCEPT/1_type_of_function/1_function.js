@@ -20,6 +20,7 @@ console.log("rVal",rVal);
 
 /*function are first class citizens
 => funtion are treted as a veriable*/
+
 // type 2. function expression
 let fnContainer = function() {
     console.log("I am an expression");
