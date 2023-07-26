@@ -17,8 +17,8 @@ const HeaaderComponent = () => {
   return (
     <div>
       {header} {/* using react element inside the component */}
-      <Title /> {/* using react component inside component => composing component*/}
-      {Title()} {/*also execute component as a function at the end functional compoent is function*/}
+      <Title /> {/* using react component inside component => composing component */}
+      {Title()} {/* also execute component as a function at the end functional compoent is function */}
       <h1>Namaste React Functional Fomponent</h1>
       <h2>this is h2 tag</h2>
     </div>
