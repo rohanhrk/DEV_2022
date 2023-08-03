@@ -2,37 +2,46 @@
 # _Chapter 01 - Inception_
 
 ## Q: What is `Emmet`?
-A: `Emmet` is the essential toolkit for web-developers. It allows you to `type shortcuts` that are then expanded into full pieces of code for writing `HTML and CSS`, based on an abbreviation structure most developers already use that expands into full-fledged HTML markup and CSS rules.
+A: `Emmet` is a productivity tool for web developers that simplifies writing `HTML and CSS code`. 
+By using short, easy-to-remember abbreviations, it allows rapid generation of `complex code snippets`. 
+It speeds up front-end development, making it more efficient and reducing the need for manual typing, saving time and effort..
 
 
 ## Q: Difference between a `Library and Framework`?
-A: A `library` is a collection of packages that perform specific operations whereas a `framework` contains the basic flow and architecture of an application. The major difference between them is the complexity. Libraries contain a number of methods that a developer can just call whenever they write code. React js is library and Angular is Framework.
-The `framework` provides the flow of a software application and tells the developer what it needs and calls the code provided by the developer as required. If a `library` is used, the application calls the code from the library.
+A: A `library` is a collection of pre-written functions or code that developers can use to perform specific tasks, 
+
+while a `framework` is a complete set of `tools, rules, and conventions` that dictate 
+how an application should be structured, providing a foundation for building an entire system.
 
 
 ## Q: What is `CDN`? Why do we use it?
-A: A `content delivery network (CDN)` refers to a geographically distributed group of servers that work together to provide fast delivery of Internet content.
-The main use of a CDN is to deliver content through a network of servers in a secure and efficient way.
+A: A `CDN, or Content Delivery Network`, is a network of servers distributed across various locations worldwide. 
+It stores and delivers website assets like `images, CSS, and JavaScript files` to users from the closest server. 
+This improves website speed and performance, reducing load times and enhancing user experience..
 
 
 ## Q: Why is `React known as React`?
-A: `React` is named React because of its ability to `react to changes in data`.
-React is called React because it was designed to be a declarative, efficient, and flexible JavaScript library for building user interfaces.
-The name `React` was chosen because the library was designed to allow developers to "react" to changes in state and data within an application, and to update the user interface in a declarative and efficient manner.
+A: `React` got its name because it `reacts` to changes in a web application's state. 
+It `efficiently updates the user interface` when the data changes, avoiding the need to manually modify the DOM. 
+It `revolutionized web development` by simplifying UI development and making it more responsive and dynamic.
 `React` is a `JavaScript-based UI development library`. `Facebook` and an `open-source developer community` run it.
 
 
 ## Q: What is `crossorigin in script tag`?
-A: The `crossorigin` attribute sets the mode of the request to an HTTP CORS Request. 
-The purpose of crossorigin attribute is used to share the resources from one domain to another domain. Basically, it is used to handle the CORS request. It is used to handle the CORS request that checks whether it is safe to allow for sharing the resources from other domains.
+A: The `crossorigin` attribute in the script tag is used to fetch scripts from different domains securely, 
+preventing Cross-Origin Resource Sharing (CORS) issues in web applications. 
+It ensures proper handling of cross-origin requests by the browser.
+
 ### _Syntax_
 ```sh
 <script crossorigin="anonymous|use-credentials">
 ```
 
 ## Q: What is difference between `React and ReactDOM`?
-A: `React` is a JavaScript library for building User Interfaces whereas `ReactDOM` is also JavaScript library that allows `React to interact with the DOM`.
-The react package contains `React.createElement()`, `React.Component`, `React.Children`, and other helpers related to elements and component classes. You can think of these as the isomorphic or universal helpers that you need to build components. The react-dom package contains `ReactDOM.render()`, and in react-dom/server we have server-side rendering support with `ReactDOMServer.renderToString()` and `ReactDOMServer.renderToStaticMarkup()`.
+A: React is a JavaScript library for building user interfaces. 
+    while React DOM is a specific package within React that focuses on rendering components to the DOM. 
+
+React handles component logic, while React DOM handles updating the actual HTML in the browser.
 
 
 ## Q: What is difference between `react.development.js` and `react.production.js` files via `CDN`?
@@ -41,16 +50,21 @@ A: `Development` is the stage of an application before it's made public while `p
 
 
 ## Q: What is `async and defer`?
-A: `Async` - The async attribute is a `boolean attribute`. The script is downloaded in `parallel(in the background)` to parsing the page, and `executed as soon` as it is available (do not block HTML DOM construction during downloading process) and don’t wait for anything.
-### _Syntax_
-```sh
-<script src="demo_async.js" async></script>
-```
+A:  
+`async`: Loads the script asynchronously, allowing it to execute without pausing HTML parsing. 
+It may not maintain the order of script execution.
 
-`Defer` - The defer attribute is a `boolean attribute`. The script is downloaded in `parallel(in the background)` to parsing the page, and `executed after the page` has finished parsing(when browser finished DOM construction). The `defer attribute` tells the browser `not to wait for the script`. Instead, the browser will continue to process the HTML, build DOM.
 ### _Syntax_
 ```sh
-<script src="demo_defer.js" defer></script>
+<script async src="demo_async.js"></script>
+```
+    
+`defer`: Loads the script asynchronously too but ensures it executes after HTML parsing,         
+maintaining the order of script execution.
+
+### _Syntax_
+```sh
+<script defer src="demo_async.js"></script>
 ```
 
 Unless you're supporting ancient legacy systems, always add `type="module"` to all your script tags:

@@ -2,7 +2,11 @@
 # Chapter 04 - Talk is Cheap, show me the code
 
 ## Q: Is `JSX` mandatory for React?
-A: `JSX` is an Extension Syntax that allows writing HTML and Javascript together easily in React and is used to create React elements. These elements are then rendered to the React DOM. Each JSX element is just to make use of React easy and for calling React.createElement(component, props, …children) with less work. So, anything that is done with JSX can also be done with just plain JavaScript. So `JSX` is not mandatory but is used for writing better and clean code instead of writing code using `React.CreateElement`.
+A: `JSX` is an Extension Syntax that allows writing HTML and Javascript together easily in React and 
+is used to create React elements. These elements are then rendered to the React DOM. 
+Each JSX element is just to make use of React easy and for calling React.createElement(component, props, …children) with less work.
+So, anything that is done with JSX can also be done with just plain JavaScript. 
+So `JSX` is not mandatory but is used for writing better and clean code instead of writing code using `React.CreateElement`.
 #### Example of `JSX`
 ```
 const sample = <h2>Greetings</h2>;
@@ -72,7 +76,7 @@ return (
 ## Q: What is `Reconciliation` in React?
 A: `Reconciliation` is the process through which React updates the Browser DOM and makes React work faster. React use a `diffing algorithm` so that component updates are predictable and faster. React would first calculate the difference between the real DOM and the copy of DOM (Virtual DOM) when there's an update of components.
 React stores a copy of Browser DOM which is called `Virtual DOM`. When we make changes or add data, React creates a new Virtual DOM and compares it with the previous one. Comparison is done by `Diffing Algorithm`.
-React compares the Virtual DOM with Real DOM. It finds out the changed nodes and updates only the changed nodes in Real DOM leaving the rest nodes as it is. This process is called Reconciliation.
+React compares the Virtual DOM with Real DOM. It finds out the changed nodes and updates only the changed nodes in Real DOM leaving the rest nodes as it is. This process is called `Reconciliation`.
 
 
 ## Q: What is `React Fiber`?

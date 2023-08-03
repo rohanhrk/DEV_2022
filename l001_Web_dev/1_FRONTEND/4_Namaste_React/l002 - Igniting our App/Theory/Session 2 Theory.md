@@ -3,7 +3,11 @@
 
 
 ## Q: What is `NPM`?
-A: It is a tool used for package management and the default package manager for Node projects. `NPM is installed when NodeJS` is installed on a machine. It comes with a command-line interface (CLI) used to interact with the online database of NPM. This database is called the NPM Registry, and it hosts public and private 'packages.' To add or update packages, we use the NPM CLI to interact with this database. 
+A: `NPM (Node Package Manager)` is a tool for Node.js developers to easily find, 
+install, and use pre-built JavaScript code packages in their projects. 
+It simplifies the process of managing external libraries and dependencies, 
+saving time and effort in web development. 
+
 - `npm` alternative is `yarn`
 
 ### How to initialize `npm`?
@@ -14,9 +18,13 @@ npm init
 
 
 ## Q: What is `Parcel/Webpack`? Why do we need it?
-A: `Parcel/Webpack` is type of a web application bundler used for development and productions purposes or power our application with different type functionalities and features.
-It offers blazing fast performance utilizing multicore processing, and requires zero configuration. Parcel can take any type of file as an entry point, but an HTML or JavaScript file is a good place to start.
-Parcel/Webpack are type of bundlers that we use to power our application with different type functionalities and features.
+A: `Parcel` and `Webpack` are build tools commonly used in web development.
+
+`Parcel` is a zero-configuration bundler, meaning it requires little to no setup and automatically handles most tasks.
+
+`Webpack`, on the other hand, is a highly customizable module bundler. It offers more control and flexibility in how files are processed and bundled.
+
+Both tools are essential for projects with multiple files, dependencies, and complex setups. They optimize code, bundle assets, and enable modern development workflows, resulting in faster and more efficient websites or applications.
 
 ### Parcel Features:
 * HMR (Hot Module Replacement) - parcel keeps track of file changes via file watcher algorithm and renders the changes in the files
@@ -53,8 +61,9 @@ npm install -D parcel
     ```
 
 ## Q: What is `.parcel-cache`?
-A: `.parcel-cache` is used by parcel(bundler) to reduce the building time.
-It stores information about your project when parcel builds it, so that when it rebuilds, it doesn't have to re-parse and re-analyze everything from scratch. It's a key reason why parcel can be so fast in development mode.
+A: the `parcel-cache` folder is a directory created by the Parcel bundler during the build process. 
+It stores cached data to speed up subsequent builds. When you make changes to your project and run Parcel again, 
+it checks this cache to avoid reprocessing unchanged files, which can save time and improve the build performance.
 
 
 ## Q: What is `npx`?
